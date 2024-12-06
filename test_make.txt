@@ -1,0 +1,168 @@
+
+Nitin@DESKTOP-P1755LM UCRT64 ~
+$ make --version
+GNU Make 4.4.1
+Built for x86_64-pc-msys
+Copyright (C) 1988-2023 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Nitin@DESKTOP-P1755LM UCRT64 ~
+$ cd "C:\Users\nitin\OneDrive\Documents\Education\PSU\ECE 361\HW 5\work"
+
+Nitin@DESKTOP-P1755LM UCRT64 /c/Users/nitin/OneDrive/Documents/Education/PSU/ECE 361/HW 5/work
+$ ls
+BST_ADT.c  app.exe       float_rndm.h  makefile          test_BST_ADT_step2_transcript.txt
+BST_ADT.h  app.h         iom361_r2.c   test_BST_ADT.c    test_app.txt
+app.c      float_rndm.c  iom361_r2.h   test_BST_ADT.exe
+
+Nitin@DESKTOP-P1755LM UCRT64 /c/Users/nitin/OneDrive/Documents/Education/PSU/ECE 361/HW 5/work
+$ make
+gcc -std=c99 -Wall -Wextra -c app.c
+app.c: In function 'run_application':
+app.c:127:65: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'time_t' {aka 'long long int'} [-Wformat=]
+  127 |         printf("INFO(search()): Starting search for timestamp %ld\n", search_timestamp);
+      |                                                               ~~^     ~~~~~~~~~~~~~~~~
+      |                                                                 |     |
+      |                                                                 |     time_t {aka long long int}
+      |                                                                 long int
+      |                                                               %lld
+app.c:46:9: warning: unused variable 'num_records' [-Wunused-variable]
+   46 |     int num_records;
+      |         ^~~~~~~~~~~
+gcc -std=c99 -Wall -Wextra -c BST_ADT.c
+BST_ADT.c: In function 'inorder_traversal':
+BST_ADT.c:104:26: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'time_t' {aka 'long long int'} [-Wformat=]
+  104 |     printf("Timestamp: %ld, Temp: %u, Humid: %u\n",
+      |                        ~~^
+      |                          |
+      |                          long int
+      |                        %lld
+  105 |            root->data.timestamp, root->data.temp, root->data.humid);
+      |            ~~~~~~~~~~~~~~~~~~~~
+      |                      |
+      |                      time_t {aka long long int}
+gcc -std=c99 -Wall -Wextra -c iom361_r2.c
+iom361_r2.c: In function 'iom361_readReg':
+iom361_r2.c:84:21: warning: comparison of unsigned expression in '< 0' is always false [-Wtype-limits]
+   84 |         if ((offset < 0) || (offset > (sizeof(IOSpace) - sizeof(uint32_t)))) {
+      |                     ^
+iom361_r2.c: In function 'iom361_writeReg':
+iom361_r2.c:116:37: warning: comparison of integer expressions of different signedness: 'int' and 'long long unsigned int' [-Wsign-compare]
+  116 |         if ((offset < 0) || (offset > (sizeof(IOSpace) - sizeof(uint32_t)))) {
+      |                                     ^
+gcc -std=c99 -Wall -Wextra -c float_rndm.c
+gcc -std=c99 -Wall -Wextra -o app.exe app.o BST_ADT.o iom361_r2.o float_rndm.o
+
+Nitin@DESKTOP-P1755LM UCRT64 /c/Users/nitin/OneDrive/Documents/Education/PSU/ECE 361/HW 5/work
+$ ls
+BST_ADT.c  app.c    app.o         float_rndm.o  iom361_r2.o     test_BST_ADT.exe
+BST_ADT.h  app.exe  float_rndm.c  iom361_r2.c   makefile        test_BST_ADT_step2_transcript.txt
+BST_ADT.o  app.h    float_rndm.h  iom361_r2.h   test_BST_ADT.c  test_app.txt
+
+Nitin@DESKTOP-P1755LM UCRT64 /c/Users/nitin/OneDrive/Documents/Education/PSU/ECE 361/HW 5/work
+$ make clean
+rm -f app.o BST_ADT.o iom361_r2.o float_rndm.o app.exe
+
+Nitin@DESKTOP-P1755LM UCRT64 /c/Users/nitin/OneDrive/Documents/Education/PSU/ECE 361/HW 5/work
+$ ls
+BST_ADT.c  app.h         iom361_r2.c  test_BST_ADT.c                     test_app.txt
+BST_ADT.h  float_rndm.c  iom361_r2.h  test_BST_ADT.exe
+app.c      float_rndm.h  makefile     test_BST_ADT_step2_transcript.txt
+
+Nitin@DESKTOP-P1755LM UCRT64 /c/Users/nitin/OneDrive/Documents/Education/PSU/ECE 361/HW 5/work
+$ make
+gcc -std=c99 -Wall -Wextra -c app.c
+app.c: In function 'run_application':
+app.c:127:65: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'time_t' {aka 'long long int'} [-Wformat=]
+  127 |         printf("INFO(search()): Starting search for timestamp %ld\n", search_timestamp);
+      |                                                               ~~^     ~~~~~~~~~~~~~~~~
+      |                                                                 |     |
+      |                                                                 |     time_t {aka long long int}
+      |                                                                 long int
+      |                                                               %lld
+app.c:46:9: warning: unused variable 'num_records' [-Wunused-variable]
+   46 |     int num_records;
+      |         ^~~~~~~~~~~
+gcc -std=c99 -Wall -Wextra -c BST_ADT.c
+BST_ADT.c: In function 'inorder_traversal':
+BST_ADT.c:104:26: warning: format '%ld' expects argument of type 'long int', but argument 2 has type 'time_t' {aka 'long long int'} [-Wformat=]
+  104 |     printf("Timestamp: %ld, Temp: %u, Humid: %u\n",
+      |                        ~~^
+      |                          |
+      |                          long int
+      |                        %lld
+  105 |            root->data.timestamp, root->data.temp, root->data.humid);
+      |            ~~~~~~~~~~~~~~~~~~~~
+      |                      |
+      |                      time_t {aka long long int}
+gcc -std=c99 -Wall -Wextra -c iom361_r2.c
+iom361_r2.c: In function 'iom361_readReg':
+iom361_r2.c:84:21: warning: comparison of unsigned expression in '< 0' is always false [-Wtype-limits]
+   84 |         if ((offset < 0) || (offset > (sizeof(IOSpace) - sizeof(uint32_t)))) {
+      |                     ^
+iom361_r2.c: In function 'iom361_writeReg':
+iom361_r2.c:116:37: warning: comparison of integer expressions of different signedness: 'int' and 'long long unsigned int' [-Wsign-compare]
+  116 |         if ((offset < 0) || (offset > (sizeof(IOSpace) - sizeof(uint32_t)))) {
+      |                                     ^
+gcc -std=c99 -Wall -Wextra -c float_rndm.c
+gcc -std=c99 -Wall -Wextra -o app.exe app.o BST_ADT.o iom361_r2.o float_rndm.o
+
+Nitin@DESKTOP-P1755LM UCRT64 /c/Users/nitin/OneDrive/Documents/Education/PSU/ECE 361/HW 5/work
+$ ./app.exe
+BST Population with random dataset
+Current working directory: C:\Users\nitin\OneDrive\Documents\Education\PSU\ECE 361\HW 5\work
+
+Enter the starting month (1 to 12), day (1 to 31), and number of days (1 to 100): 8,1,30
+User requested 30 data items starting at  8/ 1/2023
+
+RedDC= 0% (  0), GrnDC= 0% (  0), BluDC= 0% (  0)       Enable=OFF
+BST populated with 30 records.
+
+Enter a search date (mm/dd/yyyy): 9/1/2023
+INFO(search()): Starting search for timestamp 1693555200
+Did not find data for 01-Sep-2023
+Enter a search date (mm/dd/yyyy): 8/15/2023
+INFO(search()): Starting search for timestamp 1692086400
+FOUND-> 15-Aug-2023     60.0F(0000003C) 68.0%(00000044)
+Enter a search date (mm/dd/yyyy):
+
+Temperature/Humidity table:
+---------------------------
+Date                 Temp (F)   Humid (%)
+Timestamp: 1690876800, Temp: 52, Humid: 73
+Timestamp: 1690963200, Temp: 65, Humid: 80
+Timestamp: 1691049600, Temp: 37, Humid: 53
+Timestamp: 1691136000, Temp: 77, Humid: 11
+Timestamp: 1691222400, Temp: 94, Humid: 55
+Timestamp: 1691308800, Temp: 91, Humid: 58
+Timestamp: 1691395200, Temp: 12, Humid: 6
+Timestamp: 1691481600, Temp: 57, Humid: 57
+Timestamp: 1691568000, Temp: 53, Humid: 1
+Timestamp: 1691654400, Temp: 6, Humid: 90
+Timestamp: 1691740800, Temp: 89, Humid: 14
+Timestamp: 1691827200, Temp: 6, Humid: 2
+Timestamp: 1691913600, Temp: 56, Humid: 29
+Timestamp: 1692000000, Temp: 25, Humid: 1
+Timestamp: 1692086400, Temp: 60, Humid: 68
+Timestamp: 1692172800, Temp: 12, Humid: 29
+Timestamp: 1692259200, Temp: 25, Humid: 28
+Timestamp: 1692345600, Temp: 11, Humid: 62
+Timestamp: 1692432000, Temp: 94, Humid: 28
+Timestamp: 1692518400, Temp: 11, Humid: 32
+Timestamp: 1692604800, Temp: 50, Humid: 36
+Timestamp: 1692691200, Temp: 86, Humid: 65
+Timestamp: 1692777600, Temp: 41, Humid: 89
+Timestamp: 1692864000, Temp: 83, Humid: 34
+Timestamp: 1692950400, Temp: 21, Humid: 43
+Timestamp: 1693036800, Temp: 50, Humid: 59
+Timestamp: 1693123200, Temp: 84, Humid: 51
+Timestamp: 1693209600, Temp: 47, Humid: 85
+Timestamp: 1693296000, Temp: 41, Humid: 90
+Timestamp: 1693382400, Temp: 98, Humid: 59
+
+BST deleted and application terminated.
+
+Nitin@DESKTOP-P1755LM UCRT64 /c/Users/nitin/OneDrive/Documents/Education/PSU/ECE 361/HW 5/work
+$

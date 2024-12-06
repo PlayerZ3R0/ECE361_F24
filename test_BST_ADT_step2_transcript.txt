@@ -1,0 +1,23 @@
+PS G:\Other computers\SurfacePro7+\PSU\ECE 361\Homework\HW 5\work> gcc -o test_BST_ADT test_BST_ADT.c BST_ADT.c -std=c99
+PS G:\Other computers\SurfacePro7+\PSU\ECE 361\Homework\HW 5\work> .\test_BST_ADT.exe
+Comprehensive test program for the new Stack ADT (stack_adt.c)
+Current working directory: G:\Other computers\SurfacePro7+\PSU\ECE 361\Homework\HW 5\work
+
+===== Testing Binary Search Tree Operations =====
+Creating BST and inserting nodes...
+Insertion completed.
+Performing Inorder Traversal:
+Timestamp: 1000, Temp: 43, Humid: 55
+Timestamp: 1001, Temp: 55, Humid: 60
+Timestamp: 1002, Temp: 65, Humid: 65
+Timestamp: 1003, Temp: 34, Humid: 70
+
+Searching for a node with timestamp 1002:
+Node found: Timestamp: 1002, Temp: 65, Humid: 65
+Searching for a node with timestamp 9999:
+Node not found.
+Testing insertion into a NULL BST:
+Insertion successful: Root node created with timestamp 1001
+Deleting the BST:
+BST deleted successfully.
+PS G:\Other computers\SurfacePro7+\PSU\ECE 361\Homework\HW 5\work>
